@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Finger Paint', cursive;
+    color: #F2C14E;
+}
+
+nav {
+    background-color: #131c20;
+    font-size: 28px;
+    font-weight: 550;
+    padding: 15px;
+}
+
+body {
+    background-color: #2d414b;
+    height: 100vh;
+}
+
+.gameContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.gameGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 10vw);
+    grid-template-rows: repeat(3, 10vw);
+    font-size: 7.5vw;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #F2C14E;
+}
+
+.box:hover {
+    background-color: #273841;
+}
+
+.br-0 {
+    border-right: 0;
+}
+
+.bl-0 {
+    border-left: 0;
+}
+
+.bt-0 {
+    border-top: 0;
+}
+
+.bb-0 {
+    border-bottom: 0;
+}
+
+.gameInfo {
+    padding-left: 30px;
+}
+
+.infoContainer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 10px 0;
+}
+
+.info {
+    margin-right: 10px;
+}
+
+#restart {
+    background-color: #F2C14E;
+    color: #2d414b;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: 0.3s ease-in;
+}
+
+#restart:hover {
+    cursor: pointer;
+    background-color: #2d414b;
+    color: #F2C14E;
+    border-color: #F2C14E;
+    transition: 0.3s ease-out;
+}
+
+.imgBox {
+    text-align: center;
+    padding: 3px 0;
+}
+
+.imgBox img {
+    width: 0;
+    transition: width 0.69s ease-in-out;
+}
+
+
+@media(max-width: 1300px) {
+    .gameGrid {
+        grid-template-columns: repeat(3, 12vw);
+        grid-template-rows: repeat(3, 12vw);
+        font-size: 8.5vw;
+    }
+}
+
+@media(max-width: 1200px) {
+    .gameGrid {
+        grid-template-columns: repeat(3, 13vw);
+        grid-template-rows: repeat(3, 13vw);
+        font-size: 9.5vw;
+    }
+
+    #restart:hover {
+        cursor: pointer;
+        background-color: #2d414b;
+        color: #F2C14E;
+        border-color: #F2C14E;
+        transition: 0.3s ease-out;
+    }
+}
+
+
+@media(max-width: 900px) {
+    .gameContainer {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .gameGrid {
+        padding: 50px 0;
+    }
+
+    .gameInfo {
+        padding: 0 15px;
+    }
+}
+
+@media(max-width: 600px) {
+    .gameGrid {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+        font-size: 65px;
+        padding: 20px;
+    }
+
+    .gameContainer {
+        padding-top: 0px;
+    }
+}
+
+@media(max-height: 670px) {
+    .gameGrid {
+        grid-template-columns: repeat(3, 60px);
+        grid-template-rows: repeat(3, 60px);
+        font-size: 51px;
+    }
+
+    .gameContainer {
+        padding-top: 10px;
+    }
+
+    .infoContainer {
+        font-size: 20px;
+        padding: 0;
+    }
+
+    #restart {
+        padding: 4px 9px;
+        font-size: 18px;
+    }
+}
