@@ -33,10 +33,11 @@ const checkWin = () => {
             isGameOver = true
             document.getElementsByTagName("img")[0].style.width = "250px"
             winMusic.play()
-            let boxes = document.getElementsByClassName("box")
+
+            let outerBoxes = document.getElementsByClassName("outerBox")
             e.forEach((i) => {
-                boxes[i].style.background = "#f2c14e25"
-                boxes[i].classList.add("changeBG")
+                outerBoxes[i].style.background = "#f2c14e25"
+                outerBoxes[i].classList.add("changeBG")
             })
         }
     })
@@ -60,8 +61,8 @@ const checkDraw = () => {
 
 
 // Game Logic
-let boxes = document.getElementsByClassName("box")
-Array.from(boxes).forEach((element) => {
+let outerBoxes = document.getElementsByClassName("outerBox")
+Array.from(outerBoxes).forEach((element) => {
     let boxText = element.querySelector(".boxText")
     element.addEventListener('click', () => {
         if (boxText.innerText === "") {
@@ -93,27 +94,16 @@ restart.addEventListener('click', () => {
     document.getElementsByClassName("info")[0].innerText = "Turn for " + turn
 
     let img = document.getElementsByTagName("img")
-    Array.from(img).forEach((element)=>{
-            element.style.width = "0"
+    Array.from(img).forEach((element) => {
+        element.style.width = "0"
     })
 
     let changeBG = document.getElementsByClassName("changeBG")
     Array.from(changeBG).forEach((element) => {
         element.style.backgroundColor = "#2d414b"
-        element.addEventListener('mouseover', () => {
-            if (!isGameOver) {
-                element.style.background = "#273841"
-            }
-        })
-        element.addEventListener('mouseout', () => {
-            if (!isGameOver) {
-                element.style.background = "#2d414b"
-            }
-        })
+        element.classList.remove("changeBG")
     })
-    Array.from(changeBG).forEach((element) => {
-        element.classList.add("changeBG")
-    })
+
     isGameOver = false
     isDraw = false
 })
