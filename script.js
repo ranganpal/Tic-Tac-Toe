@@ -34,10 +34,10 @@ const checkWin = () => {
             document.getElementsByTagName("img")[0].style.width = "250px"
             winMusic.play()
 
-            let outerBoxes = document.getElementsByClassName("outerBox")
+            let boxes = document.getElementsByClassName("box")
             e.forEach((i) => {
-                outerBoxes[i].style.background = "#f2c14e25"
-                outerBoxes[i].classList.add("changeBG")
+                boxes[i].style.background = "#f2c14e25"
+                boxes[i].classList.add("changeBG")
             })
         }
     })
@@ -61,8 +61,8 @@ const checkDraw = () => {
 
 
 // Game Logic
-let outerBoxes = document.getElementsByClassName("outerBox")
-Array.from(outerBoxes).forEach((element) => {
+let boxes = document.getElementsByClassName("box")
+Array.from(boxes).forEach((element) => {
     let boxText = element.querySelector(".boxText")
     element.addEventListener('click', () => {
         if (boxText.innerText === "") {
@@ -79,6 +79,16 @@ Array.from(outerBoxes).forEach((element) => {
             else {
                 boxText.innerText = ""
             }
+        }
+    })
+    element.addEventListener('mouseover', () =>{
+        if(!element.className.includes("changeBG")){
+            element.style.background = "#273841"
+        }
+    })
+    element.addEventListener('mouseout', () =>{
+        if(!element.className.includes("changeBG")){
+            element.style.background = "#2d414b"
         }
     })
 })

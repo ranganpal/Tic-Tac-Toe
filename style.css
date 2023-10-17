@@ -30,20 +30,11 @@ body {
     font-size: 7.5vw;
 }
 
-.outerBox {
-    border: 1px solid #F2C14E;
-}
-
-.innerBox {
-    width: 100%;
-    height: 100%;
+.box {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.innerBox:hover {
-    background-color: #273841;
+    border: 1px solid #F2C14E;
 }
 
 .br-0 {
