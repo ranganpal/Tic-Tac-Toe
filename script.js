@@ -14,6 +14,7 @@ const changeTurn = () => {
 
 // Function to chech win
 const checkWin = () => {
+    let winLogicDone = false;
     const win = [
         [0, 1, 2],
         [3, 4, 5],
@@ -26,20 +27,22 @@ const checkWin = () => {
     ];
 
     win.forEach((e) => {
-        let boxTexts = document.getElementsByClassName("boxText");
-        if (boxTexts[e[0]].innerText === boxTexts[e[1]].innerText &&
-            boxTexts[e[1]].innerText === boxTexts[e[2]].innerText &&
-            boxTexts[e[0]].innerText !== "") {
-            document.querySelector(".info").innerText = boxTexts[e[0]].innerText + " has won";
-            document.getElementsByTagName("img")[0].style.width = "250px";
-            winMusic.play();
-            isGameOver = true;
-
-            let boxes = document.getElementsByClassName("box");
-            e.forEach((i) => {
-                boxes[i].style.background = "#f2c14e25";
-                boxes[i].classList.add("changeBG");
-            });
+        if (!winLogicDone) {
+            let boxTexts = document.getElementsByClassName("boxText");
+            if (boxTexts[e[0]].innerText === boxTexts[e[1]].innerText &&
+                boxTexts[e[1]].innerText === boxTexts[e[2]].innerText &&
+                boxTexts[e[0]].innerText !== "") {
+                document.querySelector(".info").innerText = boxTexts[e[0]].innerText + " has won";
+                document.getElementsByTagName("img")[0].style.width = "250px";
+                winMusic.play();
+                isGameOver = true;
+                winLogicDone = true;
+                let boxes = document.getElementsByClassName("box");
+                e.forEach((i) => {
+                    boxes[i].style.background = "#f2c14e25";
+                    boxes[i].classList.add("changeBG");
+                });
+            }
         }
     });
 }
