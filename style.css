@@ -149,25 +149,3 @@ body {
         padding-top: 0px;
     }
 }
-
-@media(max-height: 670px) {
-    .gameGrid {
-        grid-template-columns: repeat(3, 60px);
-        grid-template-rows: repeat(3, 60px);
-        font-size: 51px;
-    }
-
-    .gameContainer {
-        padding-top: 10px;
-    }
-
-    .infoContainer {
-        font-size: 20px;
-        padding: 0;
-    }
-
-    #restart {
-        padding: 4px 9px;
-        font-size: 18px;
-    }
-}
